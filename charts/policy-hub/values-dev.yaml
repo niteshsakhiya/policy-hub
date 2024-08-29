@@ -11,7 +11,7 @@ postgresql:
   commonLabels:
     app.kubernetes.io/version: "15"
   auth:
-    username: hub
+    username: "<path:policy-hub/data/dev/database#user>"
     database: policy-hub
     existingSecret: "{{ .Release.Name }}-phub-postgres"
     postgrespassword: "<path:policy-hub/data/dev/database#postgresPassword>"
