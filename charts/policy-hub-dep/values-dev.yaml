@@ -1,0 +1,22 @@
+policy-hub:
+  dotnetEnvironment: "Development"
+
+  dbConnection:
+    schema: "hub"
+    sslMode: "Disable"
+
+  postgresql:
+    enabled: true
+    image:
+      tag: "15-debian-11"
+    commonLabels:
+      app.kubernetes.io/version: "15"
+    auth:
+      username: "<path:policy-hub/data/dev/database#user>"
+      database: policy-hub
+      existingSecret: "{{ .Release.Name }}-phub-postgres"
+      postgrespassword: "<path:policy-hub/data/dev/database#postgresPassword>"
+      password: "<path:policy-hub/data/dev/database#password>"
+    architecture: standalone
+
+  replicaCount: 1

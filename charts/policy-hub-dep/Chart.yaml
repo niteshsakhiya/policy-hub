@@ -1,0 +1,12 @@
+apiVersion: v2
+name: policy-hub
+description: Helm chart for Policy Hub deployment using ACR dep
+
+type: application
+version: 1.0.0
+appVersion: 1.0.0
+
+dependencies:
+  - repository: oci://cofxoneclickacr.azurecr.io/core-services/policy-hub/helm
+    name: policy-hub
+    version: 1.0.0
